@@ -1,0 +1,22 @@
+{
+  "name": "get",
+  "version": "1.0.0",
+  "author": "Aaron Rieke",
+  "main": "./index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "expect": "^1.13.4"
+  },
+  "description": "A function for safely querying objects and arrays.",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/akbr/get"
+  },
+  "keywords": [
+    "query"
+  ],
+  "license": "MIT"
+}
