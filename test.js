@@ -1,5 +1,5 @@
+var assert = require('assert');
 var get = require('./index.js');
-var expect = require('expect');
 
 var me = {
   name: 'Aaron',
@@ -10,30 +10,32 @@ var me = {
   lived: ['Oregon', 'Washington', 'California', 'DC']
 };
 
-expect(
-  get(me)
-).toBe(me);
+assert.equal(
+  get(me), me
+);
 
-expect(
-  get(me, 'name')
-).toEqual('Aaron');
+assert.equal(
+  get(me, 'name'), 'Aaron'
+);
 
-expect(
-  get(me, 'features.hair')
-).toEqual('brown');
+assert.equal(
+  get(me, 'features.hair'), 'brown'
+);
 
-expect(
-  get(me, 'lived.3')
-).toEqual('DC');
+assert.equal(
+  get(me, 'lived.3'), 'DC'
+);
 
-expect(
-  get(me, (obj, get) => get(obj, 'name'))
-).toEqual('Aaron');
+assert.equal(
+  get(me, (obj, get) => get(obj, 'name')), 'Aaron'
+);
 
-expect(
-  get(me, 'features.hair.style')
-).toEqual(undefined);
+assert.equal(
+  get(me, 'features.hair.style'), undefined
+);
 
-expect(
-  get(me, 'features.hair.style.deeper')
-).toEqual(null);
+assert.equal(
+  get(me, 'features.hair.style.deeper'), null
+);
+
+console.log("Success!");

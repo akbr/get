@@ -1,3 +1,5 @@
+var makePath = require("@akbr/make-path");
+
 module.exports = function get(obj, path) {
   var type, length, i;
 
@@ -14,7 +16,7 @@ module.exports = function get(obj, path) {
   if (type === 'function') {
     return path(obj, get);
   } else {
-    path = getPath(path);
+    path = makePath(path);
   }
 
   length = path.length;
@@ -33,23 +35,3 @@ module.exports = function get(obj, path) {
 
   return obj;
 };
-
-function getPath(path) {
-  var type;
-
-  if (!path) {
-    return [];
-  }
-
-  type = typeof(path);
-
-  if (type === 'string') {
-    return path.split('.');
-  } else if (type === 'number') {
-    return [path];
-  } else if (Array.isArray(path)) {
-    return path;
-  } else {
-    throw new Error('Invalid path type supplied.');
-  }
-}

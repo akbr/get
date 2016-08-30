@@ -31,7 +31,6 @@ get(profile, (target, get) => {
   }
 }); // {name: 'Aaron', foo: 'bar'}
 
-
 // Queries can also return undefined or null.
 // null indicates a query that would have probably otherwise thrown
 get(profile, 'features.shoeSize'); // undefined
@@ -44,7 +43,7 @@ get(profile, 'features.just.too.deep'); // null
 A `target` can be whatever. (But I suggest an `object` or an `array`. :wink:)
 
 A `path` can be:
-* A `string`, with optional dot notation for nesting.
-* A `number`.
-* An `array`, with optional multiple values for nesting.
-* A `function`, which will receive `(target, get)`.
+* A string, with dot notation for nesting;
+* A number;
+* An array, with multiple values for nesting;
+* A function, which will receive `(target, get)`.
