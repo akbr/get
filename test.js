@@ -38,4 +38,8 @@ assert.equal(
   get(me, 'features.hair.style.deeper'), null
 );
 
+assert.equal(
+  get(me, null), me
+);
+
 console.log("Success!");

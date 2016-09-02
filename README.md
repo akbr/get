@@ -47,3 +47,8 @@ A `path` can be:
 * A number;
 * An array, with multiple values for nesting;
 * A function, which will receive `(target, get)`.
+
+Invalid `path` values are interpreted as an empty path.
+
+## Changelog
+1.0.1 - Invalid paths now interpreted as an empty path.

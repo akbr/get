@@ -1,13 +1,13 @@
 {
   "name": "@akbr/get",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Query objects and arrays safely.",
   "main": "./index.js",
   "scripts": {
     "test": "node test.js"
   },
   "dependencies": {
-    "@akbr/make-path": "^1.0.0"
+    "@akbr/make-path": "^1.0.1"
   },
   "repository": {
     "type": "git",
