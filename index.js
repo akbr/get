@@ -1,7 +1,7 @@
 var makePath = require("@akbr/make-path");
 
 module.exports = function get(obj, path, fallback) {
-  if (typeof(obj) !== "object" || !path) {
+  if (typeof(obj) !== "object" || obj === null) {
     return obj;
   }
 

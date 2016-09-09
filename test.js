@@ -11,7 +11,7 @@ var me = {
 };
 
 assert.equal(
-  get(null), null
+  get(null, "a.b.c"), null
 );
 
 assert.equal(

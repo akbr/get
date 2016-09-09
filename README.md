@@ -43,7 +43,7 @@ get(profile, 'features.just.too.deep', 'lol'); // 'lol'
 ## API
 ### get(target, path[, fallback])
 
-A `target` should be of type object. Other types will be immediately returned.
+A `target` should be of type object, and not null. Anything else will be immediately returned.
 
 A `path` can be:
 * A string, with dot notation for nesting;
@@ -56,5 +56,8 @@ Invalid `path` values are interpreted as an empty path.
 A `fallback` will be returned, if supplied, if the query would have thrown a TypeError (for trying to nest on an undefined value).
 
 ## Changelog
+1.0.3 - null `target`s now returned, despite being of type "object" (wtf JS?)
+
 1.0.2 - Added `fallback` argument for invalid paths. Non-object `target`s now immediately returned.
+
 1.0.1 - Invalid paths now interpreted as an empty path.
