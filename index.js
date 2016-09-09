@@ -1,32 +1,23 @@
 var makePath = require("@akbr/make-path");
 
-module.exports = function get(obj, path) {
-  var type, length, i;
-
-  if (!obj) {
-    return undefined;
-  }
-
-  if (!path) {
+module.exports = function get(obj, path, fallback) {
+  if (typeof(obj) !== "object" || !path) {
     return obj;
   }
 
-  type = typeof(path);
-
-  if (type === 'function') {
+  if (typeof(path) === "function") {
     return path(obj, get);
   } else {
     path = makePath(path);
   }
 
-  length = path.length;
-  for (i = 0; i < length; i++) {
+  var length = path.length;
+  for (var i = 0; i < length; i++) {
     obj = obj[path[i]];
     if (!obj) {
       if (i !== length - 1) {
         // Normally, an exception would be thrown.
-        // Indicate that by returning null rather than undefined.
-        return null;
+        return fallback !== undefined ? fallback: null;
       } else {
         break;
       }

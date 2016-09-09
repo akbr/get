@@ -11,6 +11,10 @@ var me = {
 };
 
 assert.equal(
+  get(null), null
+);
+
+assert.equal(
   get(me), me
 );
 
@@ -36,6 +40,11 @@ assert.equal(
 
 assert.equal(
   get(me, 'features.hair.style.deeper'), null
+);
+
+let err = new Error();
+assert.equal(
+  get(me, 'features.hair.style.deeper', err) instanceof Error, true
 );
 
 assert.equal(

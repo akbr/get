@@ -31,16 +31,19 @@ get(profile, (target, get) => {
   }
 }); // {name: 'Aaron', foo: 'bar'}
 
-// Queries can also return undefined or null.
-// null indicates a query that would have probably otherwise thrown
+// Queries can also return undefined.
 get(profile, 'features.shoeSize'); // undefined
+
+// By default, get returns null to indicate a query that would probably thrown a TypeError
 get(profile, 'features.just.too.deep'); // null
+// Change this behavior with a fallback
+get(profile, 'features.just.too.deep', 'lol'); // 'lol'
 ```
 
 ## API
-### get(target, path)
+### get(target, path[, fallback])
 
-A `target` can be whatever. (But I suggest an `object` or an `array`. :wink:)
+A `target` should be of type object. Other types will be immediately returned.
 
 A `path` can be:
 * A string, with dot notation for nesting;
@@ -50,5 +53,8 @@ A `path` can be:
 
 Invalid `path` values are interpreted as an empty path.
 
+A `fallback` will be returned, if supplied, if the query would have thrown a TypeError (for trying to nest on an undefined value).
+
 ## Changelog
+1.0.2 - Added `fallback` argument for invalid paths. Non-object `target`s now immediately returned.
 1.0.1 - Invalid paths now interpreted as an empty path.
