@@ -39,12 +39,11 @@ assert.equal(
 );
 
 assert.equal(
-  get(me, 'features.hair.style.deeper'), null
+  get(me, 'features.hair.style.deeper'), undefined
 );
 
-let err = new Error();
 assert.equal(
-  get(me, 'features.hair.style.deeper', err) instanceof Error, true
+  get(me, 'features.hair.style.deeper', 'tooDeep!'), 'tooDeep!' 
 );
 
 assert.equal(

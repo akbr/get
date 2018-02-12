@@ -31,12 +31,9 @@ get(profile, (target, get) => {
   }
 }); // {name: 'Aaron', foo: 'bar'}
 
-// Queries can also return undefined.
+// Various unspecified values
 get(profile, 'features.shoeSize'); // undefined
-
-// By default, get returns null to indicate a query that would probably thrown a TypeError
-get(profile, 'features.just.too.deep'); // null
-// Change this behavior with a fallback
+get(profile, 'features.just.too.deep'); // undefined
 get(profile, 'features.just.too.deep', 'lol'); // 'lol'
 ```
 
@@ -56,6 +53,8 @@ Invalid `path` values are interpreted as an empty path.
 A `fallback` will be returned, if supplied, if the query would have thrown a TypeError (for trying to nest on an undefined value).
 
 ## Changelog
+1.0.4 - invalid paths return as undefined by default
+
 1.0.3 - null `target`s now returned, despite being of type "object" (wtf JS?)
 
 1.0.2 - Added `fallback` argument for invalid paths. Non-object `target`s now immediately returned.

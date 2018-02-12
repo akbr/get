@@ -1,6 +1,6 @@
 {
   "name": "@akbr/get",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Query objects and arrays safely.",
   "main": "./index.js",
   "scripts": {
